@@ -1,21 +1,27 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
+
+// Function to check if a number is prime or 1
+int isPrimeOrOne(int num) {
+    int divisorCount = 0;
+    for (int i = 1; i <= num; i++) {
+        if (num % i == 0) {
+            divisorCount++;
+        }
+    }
+    return (divisorCount == 2 || num == 1);
+}
 
 int main() {
-    int n;
-    long factorial = 1.0;
-
-    cout << "Enter a positive integer: ";
-    cin >> n;
-
-    if (n < 0)
-        cout << "Error! Factorial of a negative number doesn't exist.";
-    else {
-        for(int i = 1; i <= n; ++i) {
-            factorial *= i;
+    int sum = 0;
+    int input;
+    while (1) {
+        printf("%d\n", sum);
+        printf("Input? ");
+        scanf("%d", &input);
+        if (input == 0) break;
+        if (isPrimeOrOne(input)) {
+            sum += input;
         }
-        cout << "Factorial of " << n << " = " << factorial;
     }
-
     return 0;
 }
